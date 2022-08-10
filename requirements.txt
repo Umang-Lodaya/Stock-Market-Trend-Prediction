@@ -4,3 +4,4 @@ matplotlib
 sklearn
 streamlit
 keras
+pandas-datareader
