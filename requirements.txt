@@ -3,5 +3,10 @@ numpy
 pandas
 sklearn
 streamlit
+<<<<<<< HEAD
 matplotlib
 pandas_datareader
+=======
+keras
+pandas-datareader
+>>>>>>> 7b248b496205698facdd229f7b8b03404a3aeb18
