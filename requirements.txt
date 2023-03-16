@@ -3,6 +3,6 @@ pandas
 yfinance
 datetime
 pandas_datareader
-sklearn
+scikit-learn
 keras
 streamlit
