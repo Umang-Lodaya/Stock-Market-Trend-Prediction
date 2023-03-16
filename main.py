@@ -166,17 +166,5 @@ if st.button("ANALYZE"):
 
 
 with st.expander("ABOUT"):
-    st.markdown("MADE BY: UMANG KIRIT LODAYA")
-    
-    col1, col2, col3 = st.columns([0.045, 0.05, 0.50])
-    url = 'https://github.com/Umang-Lodaya/Stock-Market-Trend-Prediction'
-    if col1.button('GitHub'):
-        webbrowser.open_new_tab(url)
-
-    url = 'https://www.linkedin.com/in/umang-lodaya-074496242/'
-    if col2.button('LinkedIn'):
-        webbrowser.open_new_tab(url)
-    
-    url = 'https://www.kaggle.com/umanglodaya'
-    if col3.button('Kaggle'):
-        webbrowser.open_new_tab(url)
+    st.markdown("Made By: UMANG KIRIT LODAYA")
+    st.markdown("Link to my Profiles: [GitHub](https://github.com/Umang-Lodaya/Stock-Market-Trend-Prediction) | [LinkedIn](https://www.linkedin.com/in/umang-lodaya-074496242/) | [Kaggle](https://www.kaggle.com/umanglodaya)")
