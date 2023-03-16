@@ -1,12 +1,9 @@
-keras
 numpy
 pandas
-sklearn
-streamlit
-<<<<<<< HEAD
-matplotlib
+yfinance
+datetime
 pandas_datareader
-=======
+sklearn
 keras
-pandas-datareader
->>>>>>> 7b248b496205698facdd229f7b8b03404a3aeb18
+webbrowser
+streamlit

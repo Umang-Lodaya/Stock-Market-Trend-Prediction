@@ -7,8 +7,6 @@ from datetime import datetime
 from pandas_datareader import data as pdr
 yf.pdr_override()
 
-from datetime import datetime
-
 from sklearn.preprocessing import MinMaxScaler
 
 from keras.models import Sequential
