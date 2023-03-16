@@ -6,3 +6,4 @@ pandas_datareader
 scikit-learn
 keras
 streamlit
+tensorflow
