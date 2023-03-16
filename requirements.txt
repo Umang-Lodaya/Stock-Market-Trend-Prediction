@@ -5,5 +5,4 @@ datetime
 pandas_datareader
 sklearn
 keras
-webbrowser
 streamlit
