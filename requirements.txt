@@ -1,6 +1,7 @@
+keras
 numpy
 pandas
-matplotlib
 sklearn
 streamlit
-keras
+matplotlib
+pandas_datareader

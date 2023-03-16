@@ -1,11 +1,13 @@
+import pickle
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 # %matplotlib inline
 import pandas_datareader as data
 
-from keras.models import load_model
+# from keras.models import load_model
 import streamlit as st
+from sklearn.preprocessing import MinMaxScaler
 
 # ********** #
 st.title('STOCK TREND PREDICTION')
@@ -51,7 +53,6 @@ try:
     train_df = pd.DataFrame(df['Close'][:split])
     test_df = pd.DataFrame(df['Close'][split:])
 
-    from sklearn.preprocessing import MinMaxScaler
     scalar = MinMaxScaler(feature_range=(0,1))
     train_df_arr = scalar.fit_transform(train_df)
 
@@ -63,7 +64,7 @@ try:
         Y_train.append(train_df_arr[i,0])
 
     X_train, Y_train = np.array(X_train), np.array(Y_train)
-    model = load_model('model.h5')
+    model = pickle.load(open('model.pkl', 'rb'))
 
     past100_df = train_df.tail(100)
     test_df = past100_df.append(test_df, ignore_index=True)
