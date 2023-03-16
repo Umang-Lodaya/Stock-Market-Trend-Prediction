@@ -4,6 +4,9 @@ yfinance
 datetime
 pandas_datareader
 scikit-learn
+scikit-learn
 keras
 streamlit
+tensorflow
+
 tensorflow
