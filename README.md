@@ -1,4 +1,4 @@
-# **[STOCK MARK TREND PREDICTION](https://umang-lodaya-stock-market-trend-prediction-main-9o1ej4.streamlit.app/)**
+# **[STOCK MARK TREND PREDICTION](https://umang-lodaya-stock-market-trend-prediction.streamlit.app/)**
 
 In this project, I utilized deep learning techniques to forecast the future trends of a time series dataset. The dataset was related to a business' sales performance over time, and I aimed to predict future sales based on past sales data.
 
