@@ -18,7 +18,7 @@ st.set_page_config(layout="wide")
 
 print("**************************************************")
 st.title('STOCK TREND PREDICTION')
-st.markdown('Try adding new Stock Symbol. You can various find Stock Symbol at [Yahoo Finance](https://finance.yahoo.com/trending-tickers)')
+st.markdown('Try adding new Stock Symbol. You can various find Stock Symbols at [Yahoo Finance](https://finance.yahoo.com/trending-tickers)')
 
 # The tech stocks we'll use for this analysis
 stock = st.text_input('ENTER A STOCK CODE', 'AAPL')
