@@ -22,7 +22,7 @@ st.markdown("Made By: Umang Kirit Lodaya ©. [GitHub](https://github.com/Umang-L
 st.markdown("")
 
 # The tech stocks we'll use for this analysis
-stock = st.text_input('ENTER A STOCK CODE', 'AAPLE')
+stock = st.text_input('ENTER A STOCK CODE', 'TSLA')
 st.markdown('You can various find Stock Symbols at [Yahoo Finance](https://finance.yahoo.com/trending-tickers)')
 st.markdown("")
 
