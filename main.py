@@ -29,14 +29,14 @@ with col1:
 with col2:
     end = st.date_input("END DATE: ", datetime.now())
 
+# Set up End and Start times for data grab
+df = yf.download(stock, start, end)
+st.subheader('STOCK PRICE DATA')
+st.table(df.head())
+st.table(df.tail())
+
 if st.button("Analyze"):
     try:
-        # Set up End and Start times for data grab
-        df = yf.download(stock, start, end)
-        st.subheader('STOCK PRICE DATA')
-        st.table(df.head())
-        st.table(df.tail())
-
         # Summary Stats
         st.subheader('DESCRIPTIVE STATISTICS ABOUT THE DATA')
         st.table(df.describe())
