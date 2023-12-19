@@ -94,7 +94,7 @@ try:
 
             with st.spinner('PREPROCESSING THE DATA'):
                 # Get the stock quote
-                df = pdr.get_data_yahoo('AAPL', start=start, end=datetime.now())
+                df = pdr.get_data_yahoo(stock, start=start, end=datetime.now())
                 # Create a new dataframe with only the 'Close column 
                 data = df.filter(['Close'])
                 # Convert the dataframe to a numpy array
