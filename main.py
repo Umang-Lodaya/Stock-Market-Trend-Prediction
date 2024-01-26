@@ -60,10 +60,9 @@ try:
             print("PLOTTED VOLUME GRAPH")
 
             # We'll use pct_change to find the percent change for each day
-            col2.subheader('DAILY RETURNS')
-            df['Daily Return'] = df['Adj Close'].pct_change()
+            df['Daily Return'] = df['Adj Close'].pct_change()*100
+            col2.subheader('DAILY RETURNS (%)')
 
-            col2.markdown('HISTOGRAM')
             col2.bar_chart(df[['Daily Return']])
             print("PLOTTED DAILY RETURN GRAPHS")
 
