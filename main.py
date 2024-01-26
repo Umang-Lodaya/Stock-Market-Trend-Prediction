@@ -52,15 +52,24 @@ try:
             st.line_chart(df['Adj Close'])
             print("PLOTTED CLOSING GRAPH")
 
+            col1, col2 = st.columns(2)
+
             # Now let's plot the total volume of stock being traded each day
-            st.subheader('SALES VOLUME GRAPH')
-            st.line_chart(df['Volume'])
+            col1.subheader('SALES VOLUME GRAPH')
+            col1.line_chart(df['Volume'])
             print("PLOTTED VOLUME GRAPH")
 
+            # We'll use pct_change to find the percent change for each day
+            col2.subheader('DAILY RETURNS')
+            df['Daily Return'] = df['Adj Close'].pct_change()
+
+            col2.markdown('HISTOGRAM')
+            col2.bar_chart(df[['Daily Return']])
+            print("PLOTTED DAILY RETURN GRAPHS")
 
             st.subheader('MOVING AVERAGES OF CLOSING PRICE')
 
-            ma_day = [10, 20, 50]
+            ma_day = [30, 60, 180]
             for ma in ma_day:
                 column_name = f"MA for {ma} days"
                 df[column_name] = df['Adj Close'].rolling(ma).mean()
@@ -78,29 +87,15 @@ try:
 
             print("PLOTTED MA GRAPHS")
 
-            # We'll use pct_change to find the percent change for each day
-            st.subheader('DAILY RETURNS')
-            df['Daily Return'] = df['Adj Close'].pct_change()
-
-            col1, col2 = st.columns(2)
-
-            col1.markdown('TIMELINE PLOT')
-            col1.line_chart(df[['Daily Return']])
-
-            col2.markdown('HISTOGRAM')
-            col2.bar_chart(df[['Daily Return']])
-            print("PLOTTED DAILY RETURN GRAPHS")
-
-
             with st.spinner('PREPROCESSING THE DATA'):
                 # Get the stock quote
-                df = pdr.get_data_yahoo(stock, start=start, end=datetime.now())
+                df = pdr.get_data_yahoo(stock, start = start, end = end)
                 # Create a new dataframe with only the 'Close column 
                 data = df.filter(['Close'])
                 # Convert the dataframe to a numpy array
                 dataset = data.values
                 # Get the number of rows to train the model on
-                training_data_len = int(np.ceil( len(dataset) * .95 ))
+                training_data_len = int(np.ceil(len(dataset) * .95 ))
 
                 scaler = MinMaxScaler(feature_range=(0,1))
                 scaled_data = scaler.fit_transform(dataset)
@@ -136,9 +131,9 @@ try:
                 model.compile(optimizer='adam', loss='mean_squared_error')
 
                 # Train the model
-                model.fit(x_train, y_train, epochs=1)
+                model.fit(x_train, y_train, epochs = 1)
 
-            st.checkbox("TRAINING THE DEEP LEARNING MODEL", value=True, disabled=True)
+            st.checkbox("TRAINING THE DEEP LEARNING MODEL", value = True, disabled = True)
 
             with st.spinner('TESTING THE DEEP LEARNING MODEL'):
                 test_data = scaled_data[training_data_len - 60: , :]
@@ -154,7 +149,7 @@ try:
                 # Reshape the data
                 x_test = np.reshape(x_test, (x_test.shape[0], x_test.shape[1], 1 ))
 
-            st.checkbox("TESTING THE DEEP LEARNING MODEL", value=True, disabled=True)
+            st.checkbox("TESTING THE DEEP LEARNING MODEL", value = True, disabled = True)
 
             with st.spinner('PREDICTING THE CLOSING PRICE'):
                 # Get the models predicted price values 
@@ -178,9 +173,4 @@ try:
     
 except Exception as e:
     st.subheader("")
-    st.markdown(e)
-
-
-# with st.expander("ABOUT"):
-#     st.markdown("Made By: UMANG KIRIT LODAYA")
-#     st.markdown("Link to my Profiles: [GitHub](https://github.com/Umang-Lodaya/Stock-Market-Trend-Prediction) | [LinkedIn](https://www.linkedin.com/in/umang-lodaya-074496242/) | [Kaggle](https://www.kaggle.com/umanglodaya)")
+    st.error(e)
